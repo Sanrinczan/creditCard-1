@@ -17,7 +17,7 @@ public class CreditCardTest {
 		CreditCard card = new CreditCard();
 
 		int limitBefore = card.getLimit();
-		card.assignLimit(-100);
+		card.assignLimit(100);
 		int limitAfter = card.getLimit();
 
 		Assert.assertTrue(limitBefore == limitAfter);
@@ -31,4 +31,14 @@ public class CreditCardTest {
 
 		Assert.assertTrue(card.getLimit() == 2000);
 	}
+
+	@Test
+	public void withdrawMoney() {
+		CreditCard card = new CreditCard();
+
+		card.withdraw(50);
+
+		Assert.assertTrue(card.getLimit() == 50);
+	}
+
 }
